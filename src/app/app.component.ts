@@ -8,6 +8,7 @@ import {COURSES} from '../db-data';
 })
 export class AppComponent {
 
-
-
+    coreCourse = COURSES[0];
+    rjxsCourse = COURSES[1];
+    ngrxCourse = COURSES[2];
 }
