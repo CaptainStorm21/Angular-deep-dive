@@ -6,9 +6,14 @@
 </div>
 
 <div class="courses">
-  <course-card [course] = "coreCourse"
-                      (courseSelected) ="onCourseSelected($event)"                     
+  <course-card *ngFor = "let course of courses; index as i; first as isFirst; last as isLast;
+                        even as isEven; odd as isOdd"
+                        [class.is-first]="isFirst"
+                        [class.is-last]="isLast"
+                        [class.is-even]="isEven"
+                        [class.is-odd]="isOdd"
+                        [course] = "course"
+                      (courseSelected) ="onCourseSelected($event)"         
+                      [cardIndex]="i +1"
   ></course-card>
-  <course-card  [course] = "rjxsCourse" (courseSelected) ="onCourseSelected($event)"  ></course-card>
-  <course-card  [course] = "ngrxCourse" (courseSelected) ="onCourseSelected($event)"  ></course-card>
 </div>
