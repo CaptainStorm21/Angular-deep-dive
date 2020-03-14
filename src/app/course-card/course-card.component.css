@@ -1,0 +1,9 @@
+.course-card.beginner{
+    background: skyblue;
+    border: 1px solid darkblue;
+    border-radius: 3px;
+}
+
+.course-card.advanced{
+    background: lightseagreen;
+}
