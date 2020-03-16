@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, ElementRef } from '@angular/core';
 import {COURSES} from '../db-data';
 import { Course } from './model/course';
+import { CourseCardComponent } from './course-card/course-card.component';
 
 
 @Component({
@@ -9,17 +10,27 @@ import { Course } from './model/course';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-     courses = COURSES;
+  courses = COURSES;
 
-  startDate = new Date (2000, 3, 23);
+  @ViewChild('cardRef1', {read: ElementRef}) 
+  card1: ElementRef;
 
-  title = COURSES[0].description;
-  price = 2319.99;
-  rate = 23.3432;
+  @ViewChild('container')
+  containerDiv: ElementRef;
 
-  course = COURSES[0];
+  // @ViewChild('cardRef2') 
+  // card2: CourseCardComponent;
+
+  // startDate = new Date (2000, 3, 23);
+  // title = COURSES[0].description;
+  // price = 2319.99;
+  // rate = 23.3432;
+  // course = COURSES[0];
 
   onCourseSelected (course:Course){
-    console.log("bubbly", course)
+    // console.log("bubbly", course)
+    console.log('card 1', this.card1)
+    // console.log('card 2', this.card2)
+    console.log('containerDiv', this.containerDiv)
   }
 }

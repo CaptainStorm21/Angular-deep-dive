@@ -5,27 +5,20 @@
   />
 </div>
 
-<div class="demo">
-  <b>Start Date: </b>{{ startDate | date: "MMMM dd, yyyy" }}
-  <p>{{ title | titlecase }}</p>
-  <p>Price: {{ price | currency: "$" }}</p>
-  <p>Interest Rate: {{ rate | percent }}</p>
 
-  <!-- {{ courses | json }} -->
-  <div *ngFor = "let pair of course | keyvalue">
-            {{pair.key + ': ' + pair.value}}
-  </div>
-
-</div>
-<div class="courses">
-  <!-- slice only shows  number you want to show  -->
-  <course-card
-    *ngFor="let course of courses | slice: 0:5; index as i"
-    [course]="course"
+<div class="courses" #container>
+  <!-- slice only shows  number you want show  -->
+  <course-card #cardRef1
     (courseSelected)="onCourseSelected($event)"
-    [cardIndex]="i + 1"
+    [course]="courses[0]"
   ></course-card>
-</div>
+
+    <!-- slice only shows  number you want to show  -->
+    <!-- <course-card #cardRef2
+      (courseSelected)="onCourseSelected($event)"
+      [course]="courses[1]"
+    ></course-card> -->
+  </div>
 
 <!-- <course-card *ngFor = "let course of courses; index as i; first as isFirst; last as isLast;
 even as isEven; odd as isOdd"
@@ -36,4 +29,26 @@ even as isEven; odd as isOdd"
 [course] = "course"
 (courseSelected) ="onCourseSelected($event)"         
 [cardIndex]="i +1"
+></course-card> -->
+
+
+<!-- <div class="demo">
+    <b>Start Date: </b>{{ startDate | date: "MMMM dd, yyyy" }}
+    <p>{{ title | titlecase }}</p>
+    <p>Price: {{ price | currency: "$" }}</p>
+    <p>Interest Rate: {{ rate | percent }}</p>
+  
+    <!-- {{ courses | json }} -->
+    <!-- <div *ngFor = "let pair of course | keyvalue">
+              {{pair.key + ': ' + pair.value}}
+    </div> -->
+  
+  <!-- </div> --> 
+
+  <!-- before view child decorator
+      <course-card
+  *ngFor="let course of courses | slice: 0:5; index as i"
+  [course]="course"
+  (courseSelected)="onCourseSelected($event)"
+  [cardIndex]="i + 1"
 ></course-card> -->
